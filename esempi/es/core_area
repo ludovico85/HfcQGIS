@@ -1,0 +1,17 @@
+Immaginiamo di dover calcolare la core area (in ettari) ossia l'area interna ad un poligono che si trova ad una certa distanza dal bordo del poligono stesso (20 metri).
+Selezionae il layer caricato e aprire il calcolatore dei campi.
+Creare un nuovo campo:
+1. Nome campo in uscita: core area
+2. Tipo campo in uscita: Numero decimale (real)
+3. Lunghezza campo in uscita: 10
+4. Precisione: 2
+
+Nella finestra delle espressioni digitare la seguente espressione:
+area(buffer($geometry, -20))/10000
+
+Il risultato sarà 17.08 ha.
+
+Le funzioni utilizzate sono:
+
+buffer: restituisce una geometria (definita con $geometry) che rappresenta tutti i punti la cui distanza dalla geometria è minore o uguale alla distanza inserita (-20, buffer interno)
+area: restituisce l'area (in ettari /10000) corrispondente della geometria appena calcolata dalla funzione buffer
